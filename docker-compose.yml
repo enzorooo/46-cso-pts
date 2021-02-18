@@ -1,0 +1,7 @@
+version: "3.8"
+services:
+  opa:
+    build: ./opa/
+    environment:
+     - TZ=Asia/Manila
+     - PYTHONUNBUFFERED=1
