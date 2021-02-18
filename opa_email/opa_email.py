@@ -348,9 +348,9 @@ def opa_sendemail():
 
     # print report log to console & log file
     with open('opa_email_run_logs.txt', 'a') as logs:
-        logs.write(f"[{timestamp}] {emails_sent} emails have been sent and {total_pending} submissions are still awaiting approval status\n")
+        logs.write(f"[{timestamp}] {emails_sent} emails have been sent and {total_pending} submissions are still awaiting approval status.\n")
         logs.close()
-    print(f"[{timestamp}] {emails_sent} emails have been sent and {total_pending} submissions are still awaiting approval status")
+    print(f"[{timestamp}] {emails_sent} emails have been sent and {total_pending} submissions are still awaiting approval status.")
 
 # Run Script
 try:
@@ -358,5 +358,8 @@ try:
         opa_sendemail()
         time.sleep(60)
 
-except:
-    print("The OPA emailing system has been interrupted by " + sys.exc_info()[0] + ".")
+except KeyboardInterrupt:
+    print("The OPA emailing system has been interrupted via KeyboardInterrupt.")
+
+#except:
+    #print("The OPA emailing system has been interrupted by ", sys.exc_info()[0],".")
