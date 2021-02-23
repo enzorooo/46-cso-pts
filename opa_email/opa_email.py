@@ -352,14 +352,18 @@ def opa_sendemail():
         logs.close()
     print(f"[{timestamp}] {emails_sent} emails have been sent and {total_pending} submissions are still awaiting approval status.")
 
-# Run Script
-try:
+def run_script(delay = 60):
     while True:
         opa_sendemail()
-        time.sleep(60)
+        time.sleep(delay)
+
+# Run Script
+try:
+    run_script()
 
 except KeyboardInterrupt:
     print("The OPA emailing system has been interrupted via KeyboardInterrupt.")
 
-#except:
-    #print("The OPA emailing system has been interrupted by ", sys.exc_info()[0],".")
+except:
+    print("The OPA emailing system has been interrupted by "+ str(sys.exc_info()[0]) +".")
+    run_script(120)
