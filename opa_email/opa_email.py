@@ -359,7 +359,7 @@ def run_script(delay = 60):
             time.sleep(delay)
 
     except KeyboardInterrupt:
-    print("The OPA emailing system has been interrupted via KeyboardInterrupt.")
+        print("The OPA emailing system has been interrupted via KeyboardInterrupt.")
 
     except:
         print("The OPA emailing system has been interrupted by "+ str(sys.exc_info()[0]) +".")
