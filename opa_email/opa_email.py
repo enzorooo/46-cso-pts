@@ -353,23 +353,19 @@ def opa_sendemail():
     print(f"[{timestamp}] {emails_sent} emails have been sent and {total_pending} submissions are still awaiting approval status.")
 
 def run_script(delay = 60):
-    while True:
-        opa_sendemail()
-<<<<<<< HEAD
-        time.sleep(120)
-=======
-        time.sleep(delay)
+    try:
+        while True:
+            opa_sendemail()
+            time.sleep(delay)
 
-# Run Script
-try:
-    run_script()
->>>>>>> fe9a4124583367d9568b6f2d0929a9044f3b1669
-
-except KeyboardInterrupt:
+    except KeyboardInterrupt:
     print("The OPA emailing system has been interrupted via KeyboardInterrupt.")
 
-except:
-    print("The OPA emailing system has been interrupted by "+ str(sys.exc_info()[0]) +".")
-    print("delaying for 240 seconds")
-    time.sleep(240)
-    run_script(60)
+    except:
+        print("The OPA emailing system has been interrupted by "+ str(sys.exc_info()[0]) +".")
+        print("delaying for 240 seconds")
+        time.sleep(240)
+        run_script()
+# Run Script
+if __name__ == '__main__':
+    run_script()
