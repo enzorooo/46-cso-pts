@@ -366,4 +366,6 @@ except KeyboardInterrupt:
 
 except:
     print("The OPA emailing system has been interrupted by "+ str(sys.exc_info()[0]) +".")
-    run_script(120)
+    print("delaying for 240 seconds")
+    time.sleep(240)
+    run_script(60)
