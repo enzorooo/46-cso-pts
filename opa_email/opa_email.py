@@ -356,7 +356,7 @@ def opa_sendemail():
 try:
     while True:
         opa_sendemail()
-        time.sleep(60)
+        time.sleep(120)
 
 except KeyboardInterrupt:
     print("The OPA emailing system has been interrupted via KeyboardInterrupt.")
