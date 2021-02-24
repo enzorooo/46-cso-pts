@@ -338,7 +338,7 @@ def opa_sendemail():
             emails_sent += 1
             # print report log to console & log file
             with open('opa_email_run_logs.txt', 'a') as logs:
-                logs.write(f"[{timestamp}] An email has been sent for submission {submission_number}.\n")
+                logs.write(f"\n[{timestamp}] An email has been sent for submission {submission_number}.")
                 logs.close()
             print(f"[{timestamp}] An email has been sent for submission {submission_number}.")
 
@@ -348,7 +348,7 @@ def opa_sendemail():
 
     # print report log to console & log file
     with open('opa_email_run_logs.txt', 'a') as logs:
-        logs.write(f"[{timestamp}] {emails_sent} emails have been sent and {total_pending} submissions are still awaiting approval status.\n")
+        logs.write(f"\n[{timestamp}] {emails_sent} emails have been sent and {total_pending} submissions are still awaiting approval status.")
         logs.close()
     print(f"[{timestamp}] {emails_sent} emails have been sent and {total_pending} submissions are still awaiting approval status.")
 
