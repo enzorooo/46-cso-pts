@@ -140,4 +140,4 @@ cython_debug/
 opa_email/cso-pnp-pass.json
 opa_email/cso-secret-key.json
 opa_email/opa_email_run_logs.txt
-.sh
+*.sh
