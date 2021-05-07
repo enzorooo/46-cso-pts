@@ -1,7 +1,0 @@
-version: "3"
-services:
-  opa:
-    build: ./opa_email/
-    environment:
-     - TZ=Asia/Manila
-     - PYTHONUNBUFFERED=1
