@@ -10,6 +10,10 @@ from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
 from email.message import EmailMessage
 
+abspath = os.path.abspath(__file__)
+dname = os.path.dirname(abspath)
+os.chdir(dname)
+
 # Conditional for when a avc column returns '' then Position should be AVC or VC if checker is the VC
 # Input is the name of the checker and the column where in if the person has an AVC in-charge
 def position_checker(checker, avc):
