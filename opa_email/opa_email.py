@@ -365,6 +365,10 @@ def run_script(delay = 60):
         print("The OPA emailing system has been interrupted via KeyboardInterrupt.")
 
     except:
+        with open('opa_email_run_logs.txt', 'a') as logs:
+                logs.write("The OPA emailing system has been interrupted by "+ str(sys.exc_info()[0]) +".")
+                logs.write("The OPA emailing system script has been delayed 240 seconds to check the error.")
+                logs.close()
         print("The OPA emailing system has been interrupted by "+ str(sys.exc_info()[0]) +".")
         print("delaying for 240 seconds")
         time.sleep(240)
