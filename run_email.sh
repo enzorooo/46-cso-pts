@@ -1,2 +1,2 @@
 #!/bin/sh
-python opa_email/opa_email.py
+python3 opa_email/opa_email.py
