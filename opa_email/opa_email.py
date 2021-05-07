@@ -8,11 +8,16 @@ import time
 from time import sleep
 from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
+from pytz import timezone
 from email.message import EmailMessage
 
+# Set default working path to current file location
 abspath = os.path.abspath(__file__)
 dname = os.path.dirname(abspath)
 os.chdir(dname)
+
+# Set current timezone to Philippine Standard Time
+ph = timezone('Asia/Manila')
 
 # Conditional for when a avc column returns '' then Position should be AVC or VC if checker is the VC
 # Input is the name of the checker and the column where in if the person has an AVC in-charge
@@ -50,7 +55,7 @@ def opa_sendemail():
 
 
     # Access OPA gsheet database
-    current_time = datetime.now()
+    current_time = datetime.now(ph)
     timestamp = current_time.strftime("%Y-%m-%d %H:%M:%S")
 
     db = np.array(opa.get_all_values())
@@ -364,11 +369,11 @@ def run_script(delay = 60):
     except KeyboardInterrupt:
         print("The OPA emailing system has been interrupted via KeyboardInterrupt.")
 
-    except:
-        print("The OPA emailing system has been interrupted by "+ str(sys.exc_info()[0]) +".")
-        print("delaying for 240 seconds")
-        time.sleep(240)
-        run_script()
+   # except:
+       # print("The OPA emailing system has been interrupted by "+ str(sys.exc_info()[0]) +".")
+       # print("delaying for 240 seconds")
+       # time.sleep(240)
+       # run_script()
 # Run Script
 if __name__ == '__main__':
     run_script()
